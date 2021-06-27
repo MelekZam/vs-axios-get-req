@@ -1,0 +1,86 @@
+{
+	"name": "vscode-extension",
+	"displayName": "vscode-extension",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:vscode-extension.helloWorld",
+		"onView:sidebar"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "sidebar-view",
+					"title": "Axios Get Request",
+					"icon": "media/axios.svg"
+				}
+			]
+		},
+		"views": {
+			"sidebar-view": [
+				{
+					"type": "webview",
+					"id": "sidebar",
+					"name": "Axios Get Request",
+					"icon": "media/axios.svg",
+					"contextualTitle": "vscode-extension"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "vscode-extension.helloWorld",
+				"title": "Hello World"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "concurrently \"rollup -c -w\" \"tsc -watch -p ./\"",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^19.0.0",
+		"@rollup/plugin-node-resolve": "^13.0.0",
+		"@rollup/plugin-typescript": "^8.2.1",
+		"@smui/button": "^4.2.0",
+		"@smui/chips": "^4.2.0",
+		"@smui/list": "^4.2.0",
+		"@smui/menu": "^4.2.0",
+		"@smui/select": "^4.2.0",
+		"@tsconfig/svelte": "^2.0.1",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.57.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"concurrently": "^6.2.0",
+		"eslint": "^7.27.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"rollup": "^2.52.3",
+		"rollup-plugin-css-only": "^3.1.0",
+		"rollup-plugin-svelte": "^7.1.0",
+		"rollup-plugin-terser": "^7.0.2",
+		"svelte": "^3.38.3",
+		"svelte-check": "^2.2.0",
+		"svelte-preprocess": "^4.7.3",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	},
+	"dependencies": {
+		"axios": "^0.21.1"
+	}
+}
